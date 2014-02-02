@@ -45,14 +45,13 @@ if __name__ == '__main__':
     R_weeks_beg, \
     R_mounthes_beg, \
     R_seasons_beg = radiusProgression
-  #R_weekend_end = R_days_beg + 20;
-  R_weekend_end = R_days_end;
+  R_weekend_end = R_days_beg + 20;
   # Stroke width
   dayLineStrokeWidth = 0.6
   weekLineStrokeWidth = 0.3
   mounthLineStrokeWidth = 0.15
   seasonLineStrokeWidth = 0.075
-  weekendStrokeWidth = 6.7
+  weekendStrokeWidth = 6.5
 
   #=======================================
   # Filling mounth arrays
