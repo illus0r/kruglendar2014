@@ -32,8 +32,8 @@ if __name__ == '__main__':
   #=======================================
   # Calendar circle parameters
   #=======================================
-  k = 4.0 # multiplication koef.
-  delta = 0.9 # first step in progression
+  k = 3.0 # multiplication koef.
+  delta = 1.9 # first step in progression
   initRad = canvasSize[0]*0.3684 # initial size
   radiusProgression = [initRad]
   for i in range(4):
@@ -45,13 +45,17 @@ if __name__ == '__main__':
     R_weeks_beg, \
     R_mounthes_beg, \
     R_seasons_beg = radiusProgression
-  R_weekend_end = R_days_beg + 20;
+  #R_weekend_end = R_days_beg + 20;
+  R_weekend_end = R_days_end;
   # Stroke width
-  dayLineStrokeWidth = 0.6
-  weekLineStrokeWidth = 0.3
-  mounthLineStrokeWidth = 0.15
-  seasonLineStrokeWidth = 0.075
-  weekendStrokeWidth = 6.5
+  stroke_k = 2
+  stroke_thinest = 0.1
+  dayLineStrokeWidth, \
+    weekLineStrokeWidth, \
+    mounthLineStrokeWidth, \
+    seasonLineStrokeWidth = [0.1*(stroke_k**i) for i in range(4,0,-1)]
+
+  weekendStrokeWidth = 6.7
 
   #=======================================
   # Filling mounth arrays
@@ -147,14 +151,21 @@ if __name__ == '__main__':
        ) )
 
     # Draw a day name
-    wordGroup = dwg.g(transform="rotate(%f, %f, %f) translate(%f,0)" \
-      %(math.degrees(angle+dayAngle+textAngleShift)+90, mid[0], mid[1], +R_dates))
     if (index-4)%7 == 0 or (index-3)%7 == 0:
-        fillColor = "rgb(255,255,255)"
+        fillColor = color #"rgb(255,255,255)"
+        #fontWeight = "bold"
+        weekendMargin = 0
     else:
         fillColor = "rgb(0,0,0)"
+        #fontWeight = "normal"
+        weekendMargin = 3.0
+    wordGroup = dwg.g(transform="rotate(%f, %f, %f) translate(%f,0)" \
+            %( math.degrees(angle+dayAngle+textAngleShift)+90, mid[0], mid[1], +R_dates+weekendMargin ) \
+            )
     wordGroup.add( dwg.text( '%s'%(yearDays[index]), \
-        insert=mid, fill=fillColor))
+            insert=mid, fill=fillColor \
+            #,style="font-weight: %s;"%(fontWeight)
+            ))
     textGroup.add(wordGroup)
 
     #=======================================
