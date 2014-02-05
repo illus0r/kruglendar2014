@@ -2,7 +2,7 @@
 Круглендарь на 2014 год
 ======================================
 
-<img src="http://habrastorage.org/storage3/9bc/43c/36d/9bc43c36d98f44e4f722432190bc58be.png">
+<img src="https://raw.github.com/illus0r/kruglendar2014/master/teaser2.png">
 
 В 2013 году сделал первый календарь: http://habrahabr.ru/post/168697/
 Продолжаем, экспериментируем.
