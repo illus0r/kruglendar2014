@@ -48,8 +48,8 @@ if __name__ == '__main__':
   #R_weekend_end = R_days_beg + 20;
   R_weekend_end = R_days_end;
   # Stroke width
-  stroke_k = 2
-  stroke_thinest = 0.1
+  stroke_k = 1.8
+  stroke_thinest = 0.15
   dayLineStrokeWidth, \
     weekLineStrokeWidth, \
     mounthLineStrokeWidth, \
@@ -154,7 +154,7 @@ if __name__ == '__main__':
     if (index-4)%7 == 0 or (index-3)%7 == 0:
         fillColor = color #"rgb(255,255,255)"
         #fontWeight = "bold"
-        weekendMargin = 3.0
+        weekendMargin = 2.0
     else:
         fillColor = "rgb(0,0,0)"
         #fontWeight = "normal"
